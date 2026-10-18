@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offboard Kit</title>
+  <meta name="description" content="Free employee onboarding and offboarding checklist generator for IT teams. Pick your systems and get a step-by-step checklist.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Offboard Kit</h1>
+    <p>Build an IT onboarding or offboarding checklist in under a minute.</p>
+  </header>
+
+  <main>
+    <section class="panel no-print" id="form">
+      <div class="mode">
+        <label><input type="radio" name="mode" value="offboarding" checked> Employee leaving</label>
+        <label><input type="radio" name="mode" value="onboarding"> New hire</label>
+      </div>
+
+      <div class="fields">
+        <label>Employee name
+          <input type="text" id="name" placeholder="Jane Smith">
+        </label>
+        <label>Date
+          <input type="date" id="date">
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>Systems your company uses</legend>
+        <div id="systems"></div>
+      </fieldset>
+    </section>
+
+    <section class="panel" id="output">
+      <div class="out-head">
+        <h2 id="out-title"></h2>
+        <div class="actions no-print">
+          <button id="copy">Copy as text</button>
+          <button id="print">Print / save PDF</button>
+        </div>
+      </div>
+      <p id="progress" class="muted"></p>
+      <div id="checklist"></div>
+    </section>
+  </main>
+
+  <footer class="no-print">
+    <p class="muted">Always check steps against your own company's policies.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
