@@ -3,6 +3,7 @@
 const SYSTEMS = [
   {
     id: "m365",
+    icon: "cloud",
     label: "Microsoft 365 / Entra ID",
     onboarding: [
       "Create user account for {name} in Microsoft 365 admin center",
@@ -25,6 +26,7 @@ const SYSTEMS = [
   },
   {
     id: "google",
+    icon: "mail",
     label: "Google Workspace",
     onboarding: [
       "Create user {name} in Google Admin console",
@@ -45,6 +47,7 @@ const SYSTEMS = [
   },
   {
     id: "ad",
+    icon: "server",
     label: "On-prem Active Directory",
     onboarding: [
       "Create AD account for {name} in the correct OU",
@@ -63,6 +66,7 @@ const SYSTEMS = [
   },
   {
     id: "slack",
+    icon: "chat",
     label: "Slack",
     onboarding: [
       "Invite {name} to the Slack workspace",
@@ -75,6 +79,7 @@ const SYSTEMS = [
   },
   {
     id: "vpn",
+    icon: "shield",
     label: "VPN / remote access",
     onboarding: [
       "Create VPN account or add {name} to the VPN group",
@@ -89,6 +94,7 @@ const SYSTEMS = [
   },
   {
     id: "hardware",
+    icon: "laptop",
     label: "Laptop / hardware",
     onboarding: [
       "Assign laptop and record serial number against {name}",
@@ -107,6 +113,7 @@ const SYSTEMS = [
   },
   {
     id: "phone",
+    icon: "phone",
     label: "Phone / mobile devices",
     onboarding: [
       "Set up desk phone or softphone extension for {name}",
@@ -120,6 +127,7 @@ const SYSTEMS = [
   },
   {
     id: "badge",
+    icon: "badge",
     label: "Building access / badges",
     onboarding: [
       "Issue access badge for {name} with the correct door groups",
@@ -132,6 +140,7 @@ const SYSTEMS = [
   },
   {
     id: "shared",
+    icon: "key",
     label: "Shared passwords / password manager",
     onboarding: [
       "Invite {name} to the password manager",
@@ -144,6 +153,7 @@ const SYSTEMS = [
   },
   {
     id: "saas",
+    icon: "grid",
     label: "Other SaaS apps (CRM, accounting, etc.)",
     onboarding: [
       "List the SaaS apps {name}'s role needs and create accounts",
