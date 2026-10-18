@@ -7,9 +7,7 @@
   <meta name="description" content="Free IT onboarding and offboarding checklist generator. Pick the systems your company uses and get a complete, printable, step-by-step checklist in seconds.">
   <meta name="theme-color" content="#0b1020">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6bff'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script>
     try { const t = localStorage.getItem("ok-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
@@ -122,7 +120,7 @@
     <div class="section-head reveal no-print">
       <span class="kicker">Builder</span>
       <h2>Build your checklist</h2>
-      <p>Everything updates live. Your ticks are saved on this device only.</p>
+      <p>Everything updates live. Names and ticket numbers are never saved or sent anywhere.</p>
     </div>
 
     <div class="builder">
@@ -194,7 +192,7 @@
   <section class="section wrap no-print" id="pricing">
     <div class="section-head reveal">
       <span class="kicker">Pricing</span>
-      <h2>Free to use. Pro when you need more.</h2>
+      <h2>Free to use. Pro Pack for your records.</h2>
     </div>
     <div class="pricing">
       <article class="plan reveal">
@@ -209,16 +207,17 @@
         <a href="#builder" class="btn btn-ghost btn-block">Start building</a>
       </article>
       <article class="plan plan-pro reveal">
-        <span class="ribbon">Coming soon</span>
-        <h3>Pro</h3>
-        <p class="price"><span>$9</span> per month</p>
+        <span class="ribbon">One-time</span>
+        <h3>Pro Pack</h3>
+        <p class="price"><span>$19</span> one-time</p>
         <ul class="ticks">
-          <li>Save your company's own template</li>
-          <li>Add custom steps and owners</li>
-          <li>Export to Excel and ticket formats</li>
-          <li>Audit log of completed checklists</li>
+          <li>Excel workbook for Excel, Google Sheets or Numbers</li>
+          <li>Offboarding and onboarding sheets with owners, status and auto progress</li>
+          <li>Exit-day timeline, asset return form and access review log</li>
+          <li>Shared credentials rotation sheet for audits</li>
         </ul>
-        <button type="button" class="btn btn-primary btn-block" disabled>Coming soon</button>
+        <!-- Paste the Gumroad (or Lemon Squeezy) product link into data-buy-url to switch the button on. -->
+        <a class="btn btn-primary btn-block" id="buy" data-buy-url="" href="#pricing">Get the Pro Pack</a>
       </article>
     </div>
   </section>
@@ -231,7 +230,7 @@
     <div class="faq">
       <details class="reveal">
         <summary>Is my data sent anywhere?</summary>
-        <p>No. Everything runs in your browser. Names, ticket numbers and progress are stored only on your device and never leave it.</p>
+        <p>No. Everything runs in your browser and nothing is sent to any server. Names and ticket numbers are never saved; only which steps you ticked is remembered on this device, and Reset clears it.</p>
       </details>
       <details class="reveal">
         <summary>Does this replace our HR process?</summary>
@@ -243,7 +242,7 @@
       </details>
       <details class="reveal">
         <summary>Can I add my own steps?</summary>
-        <p>Custom steps and saved company templates are planned for Pro. Until then, copy the checklist into your ticket and add steps there.</p>
+        <p>Yes, with the Pro Pack. It is an Excel workbook you can edit freely: add your own steps, owners and notes, and keep a copy per person as your audit record.</p>
       </details>
     </div>
   </section>
@@ -259,7 +258,7 @@
   <footer class="footer no-print">
     <div class="wrap footer-inner">
       <a href="#top" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8"/></svg></span>Offboard Kit</a>
-      <p>Built for IT teams who would rather not find a forgotten account six months later.</p>
+      <p>Built for IT teams who would rather not find a forgotten account six months later. No accounts, no tracking, no data leaves your browser.</p>
     </div>
   </footer>
 

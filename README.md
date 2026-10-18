@@ -8,11 +8,14 @@ Plain HTML, CSS and JavaScript with no build step. Open `index.html` in a browse
 - `app.js`: builder logic, progress tracking, export, theme toggle and page animations
 - `style.css`: design tokens, light/dark themes, responsive layout, print layout
 
+## Pro Pack (paid download)
+
+`python3 tools/build_pack.py` builds `dist/Offboard-Kit-Pro-Pack.xlsx` from `data.js` (needs Node and `openpyxl`). `dist/` is git-ignored so the paid file never lands in the repo. Upload the file to Gumroad or Lemon Squeezy, then paste the product link into the `data-buy-url` attribute of the `#buy` button in `index.html`.
+
 ## Hosting
 
 Any static host works. GitHub Pages: Settings → Pages → Deploy from branch → `main` / root.
 
 ## Planned
 
-- Pro tier: saved company templates, custom steps, Excel and ticket exports
 - Per-setup landing pages for search (e.g. "Microsoft 365 offboarding checklist")

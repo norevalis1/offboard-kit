@@ -44,8 +44,10 @@ function load() {
   try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; }
 }
 let state = Object.assign({ mode: "offboarding", name: "", date: "", ticket: "", systems: DEFAULT_SYSTEMS, done: {}, collapsed: {} }, load());
+// Names, dates and ticket numbers are never saved: only settings and ticks.
 function save() {
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch {}
+  const { name, date, ticket, ...keep } = state;
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(keep)); } catch {}
 }
 
 /* ---------- Form ---------- */
@@ -248,10 +250,14 @@ $("#download").addEventListener("click", () => {
 });
 $("#print").addEventListener("click", () => window.print());
 $("#reset").addEventListener("click", () => {
-  for (const sec of buildSections()) for (const step of sec.steps) delete state.done[step.key];
+  state.done = {};
+  state.name = "";
+  state.ticket = "";
+  els.name.value = "";
+  els.ticket.value = "";
   save();
   render();
-  toast("Ticks cleared");
+  toast("Checklist cleared");
 });
 $("#select-all").addEventListener("click", () => setAllSystems(true));
 $("#select-none").addEventListener("click", () => setAllSystems(false));
@@ -325,6 +331,21 @@ function confetti() {
     if (alive) requestAnimationFrame(frame);
     else ctx.clearRect(0, 0, innerWidth, innerHeight);
   })();
+}
+
+/* ---------- Buy button ---------- */
+
+// Turned on by putting the store's product link in the button's data-buy-url.
+const buy = $("#buy");
+if (buy.dataset.buyUrl) {
+  buy.href = buy.dataset.buyUrl;
+  buy.target = "_blank";
+  buy.rel = "noopener";
+} else {
+  buy.textContent = "Coming soon";
+  buy.setAttribute("aria-disabled", "true");
+  buy.classList.add("is-disabled");
+  buy.addEventListener("click", (e) => e.preventDefault());
 }
 
 /* ---------- Page effects ---------- */
