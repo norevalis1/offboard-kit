@@ -3,54 +3,268 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Offboard Kit</title>
-  <meta name="description" content="Free employee onboarding and offboarding checklist generator for IT teams. Pick your systems and get a step-by-step checklist.">
+  <title>Offboard Kit · IT onboarding and offboarding checklists</title>
+  <meta name="description" content="Free IT onboarding and offboarding checklist generator. Pick the systems your company uses and get a complete, printable, step-by-step checklist in seconds.">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f6bff'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try { const t = localStorage.getItem("ok-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Offboard Kit</h1>
-    <p>Build an IT onboarding or offboarding checklist in under a minute.</p>
-  </header>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
 
-  <main>
-    <section class="panel no-print" id="form">
-      <div class="mode">
-        <label><input type="radio" name="mode" value="offboarding" checked> Employee leaving</label>
-        <label><input type="radio" name="mode" value="onboarding"> New hire</label>
+  <nav class="nav no-print" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand" aria-label="Offboard Kit home">
+        <span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8"/></svg></span>
+        Offboard Kit
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#builder">Builder</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
-
-      <div class="fields">
-        <label>Employee name
-          <input type="text" id="name" placeholder="Jane Smith">
-        </label>
-        <label>Date
-          <input type="date" id="date">
-        </label>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a href="#builder" class="btn btn-primary btn-sm">Build a checklist</a>
       </div>
+    </div>
+  </nav>
 
-      <fieldset>
-        <legend>Systems your company uses</legend>
-        <div id="systems"></div>
-      </fieldset>
-    </section>
+  <header class="hero wrap" id="top">
+    <div class="hero-copy">
+      <span class="eyebrow reveal"><span class="pulse"></span> Free for IT teams · No sign-up</span>
+      <h1 class="reveal">Offboard employees <span class="grad">without missing a step.</span></h1>
+      <p class="lead reveal">Pick the systems your company runs on. Get a complete, ordered onboarding or offboarding checklist with the exact admin steps, ready to work through, print or paste into a ticket.</p>
+      <div class="hero-cta reveal">
+        <a href="#builder" class="btn btn-primary btn-lg">
+          Build your checklist
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+      </div>
+      <dl class="stats reveal">
+        <div><dt data-count="10">0</dt><dd>systems covered</dd></div>
+        <div><dt data-count="80">0</dt><dd>admin steps</dd></div>
+        <div><dt data-count="60" data-prefix="&lt;" data-suffix="s">0</dt><dd>to a full checklist</dd></div>
+      </dl>
+    </div>
 
-    <section class="panel" id="output">
-      <div class="out-head">
-        <h2 id="out-title"></h2>
-        <div class="actions no-print">
-          <button id="copy">Copy as text</button>
-          <button id="print">Print / save PDF</button>
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="demo-card">
+        <div class="demo-head">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span class="mono">offboarding · jane.smith</span>
+        </div>
+        <div class="demo-body">
+          <div class="demo-progress"><span></span></div>
+          <ul class="demo-list">
+            <li><span class="demo-box"></span>Block sign-in in Entra ID</li>
+            <li><span class="demo-box"></span>Revoke all active sessions</li>
+            <li><span class="demo-box"></span>Convert mailbox to shared</li>
+            <li><span class="demo-box"></span>Transfer OneDrive to manager</li>
+            <li><span class="demo-box"></span>Collect laptop and wipe device</li>
+            <li><span class="demo-box"></span>Rotate shared passwords</li>
+          </ul>
         </div>
       </div>
-      <p id="progress" class="muted"></p>
-      <div id="checklist"></div>
-    </section>
-  </main>
+      <div class="float-chip chip-a"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Access revoked</div>
+      <div class="float-chip chip-b"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>Device wiped</div>
+    </div>
+  </header>
 
-  <footer class="no-print">
-    <p class="muted">Always check steps against your own company's policies.</p>
+  <section class="logos wrap reveal no-print" aria-label="Works with">
+    <p>Works with the stack you already run</p>
+    <ul>
+      <li>Microsoft 365</li><li>Entra ID</li><li>Google Workspace</li><li>Active Directory</li><li>Slack</li><li>Intune</li><li>Jamf</li>
+    </ul>
+  </section>
+
+  <section class="section wrap no-print" id="how">
+    <div class="section-head reveal">
+      <span class="kicker">How it works</span>
+      <h2>Three steps. Nothing forgotten.</h2>
+      <p>Most security incidents after someone leaves come from one account nobody remembered. Offboard Kit makes the list for you.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal">
+        <span class="step-num">01</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div>
+        <h3>Choose the event</h3>
+        <p>New hire or employee leaving. Add their name, date and ticket number so the checklist is ready to file.</p>
+      </article>
+      <article class="step reveal">
+        <span class="step-num">02</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Pick your systems</h3>
+        <p>Tick the platforms your company uses, from identity and email to laptops, badges and shared passwords.</p>
+      </article>
+      <article class="step reveal">
+        <span class="step-num">03</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Work through it</h3>
+        <p>Tick steps off as you go. Progress is saved in your browser. Print it, save as PDF or copy it into your ticket.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="builder">
+    <div class="section-head reveal no-print">
+      <span class="kicker">Builder</span>
+      <h2>Build your checklist</h2>
+      <p>Everything updates live. Your ticks are saved on this device only.</p>
+    </div>
+
+    <div class="builder">
+      <form class="card config no-print" id="form" autocomplete="off" onsubmit="return false">
+        <div class="field">
+          <span class="label">Event</span>
+          <div class="segmented" role="radiogroup" aria-label="Checklist type">
+            <span class="seg-pill" aria-hidden="true"></span>
+            <label><input type="radio" name="mode" value="offboarding" checked><span>Employee leaving</span></label>
+            <label><input type="radio" name="mode" value="onboarding"><span>New hire</span></label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span class="label">Employee name</span>
+            <input type="text" id="name" placeholder="Jane Smith">
+          </label>
+          <label class="field">
+            <span class="label">Date</span>
+            <input type="date" id="date">
+          </label>
+        </div>
+        <label class="field">
+          <span class="label">Ticket or reference <em>optional</em></span>
+          <input type="text" id="ticket" placeholder="INC-10421">
+        </label>
+
+        <div class="field">
+          <div class="label-row">
+            <span class="label">Systems your company uses</span>
+            <div class="mini-actions">
+              <button type="button" class="link-btn" id="select-all">All</button>
+              <span>·</span>
+              <button type="button" class="link-btn" id="select-none">None</button>
+            </div>
+          </div>
+          <div class="systems" id="systems"></div>
+        </div>
+      </form>
+
+      <section class="card output" id="output" aria-live="polite">
+        <div class="out-head">
+          <div class="ring" id="ring" aria-hidden="true">
+            <svg viewBox="0 0 44 44"><circle class="ring-track" cx="22" cy="22" r="19"/><circle class="ring-fill" cx="22" cy="22" r="19"/></svg>
+            <span id="ring-pct">0%</span>
+          </div>
+          <div class="out-title">
+            <span class="badge" id="mode-badge">Offboarding</span>
+            <h3 id="out-title">Checklist</h3>
+            <p class="meta" id="out-meta"></p>
+          </div>
+        </div>
+        <div class="toolbar no-print">
+          <button type="button" class="btn btn-soft btn-sm" id="copy"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy</button>
+          <button type="button" class="btn btn-soft btn-sm" id="download"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Markdown</button>
+          <button type="button" class="btn btn-soft btn-sm" id="print"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>Print / PDF</button>
+          <button type="button" class="btn btn-soft btn-sm" id="reset"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Reset</button>
+        </div>
+        <div id="checklist" class="checklist"></div>
+        <div class="empty" id="empty" hidden>
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8"/></svg>
+          <p>Pick at least one system to build your checklist.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="section wrap no-print" id="pricing">
+    <div class="section-head reveal">
+      <span class="kicker">Pricing</span>
+      <h2>Free to use. Pro when you need more.</h2>
+    </div>
+    <div class="pricing">
+      <article class="plan reveal">
+        <h3>Free</h3>
+        <p class="price"><span>$0</span> forever</p>
+        <ul class="ticks">
+          <li>All 10 systems and every step</li>
+          <li>Onboarding and offboarding</li>
+          <li>Print, PDF and copy to ticket</li>
+          <li>Progress saved in your browser</li>
+        </ul>
+        <a href="#builder" class="btn btn-ghost btn-block">Start building</a>
+      </article>
+      <article class="plan plan-pro reveal">
+        <span class="ribbon">Coming soon</span>
+        <h3>Pro</h3>
+        <p class="price"><span>$9</span> per month</p>
+        <ul class="ticks">
+          <li>Save your company's own template</li>
+          <li>Add custom steps and owners</li>
+          <li>Export to Excel and ticket formats</li>
+          <li>Audit log of completed checklists</li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-block" disabled>Coming soon</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap no-print" id="faq">
+    <div class="section-head reveal">
+      <span class="kicker">FAQ</span>
+      <h2>Questions</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal">
+        <summary>Is my data sent anywhere?</summary>
+        <p>No. Everything runs in your browser. Names, ticket numbers and progress are stored only on your device and never leave it.</p>
+      </details>
+      <details class="reveal">
+        <summary>Does this replace our HR process?</summary>
+        <p>No. It covers the IT side: accounts, data, devices and access. Always check the steps against your company's own policies and retention rules.</p>
+      </details>
+      <details class="reveal">
+        <summary>What order should I do offboarding in?</summary>
+        <p>Cut access first (sign-in, sessions, VPN), then handle data (mailbox, files), then hardware and licenses. The checklist is already ordered that way.</p>
+      </details>
+      <details class="reveal">
+        <summary>Can I add my own steps?</summary>
+        <p>Custom steps and saved company templates are planned for Pro. Until then, copy the checklist into your ticket and add steps there.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta wrap no-print reveal">
+    <div class="cta-card">
+      <h2>Next person leaving on Friday?</h2>
+      <p>Build their checklist now. It takes under a minute.</p>
+      <a href="#builder" class="btn btn-light btn-lg">Build a checklist</a>
+    </div>
+  </section>
+
+  <footer class="footer no-print">
+    <div class="wrap footer-inner">
+      <a href="#top" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8"/></svg></span>Offboard Kit</a>
+      <p>Built for IT teams who would rather not find a forgotten account six months later.</p>
+    </div>
   </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
   <script src="data.js"></script>
   <script src="app.js"></script>
